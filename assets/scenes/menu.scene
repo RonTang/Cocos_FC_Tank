@@ -253,7 +253,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 41.00000000000001,
+      "y": 41,
       "z": 0
     },
     "_lrot": {
@@ -289,8 +289,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 180,
-      "height": 67.8
+      "width": 120,
+      "height": 37.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -319,7 +319,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "坦克大战\n唐老师屠戮版",
+    "_string": "坦克大战",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 30,
@@ -388,7 +388,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -13.899999999999991,
+      "y": 1.1000000000000014,
       "z": 0
     },
     "_lrot": {
@@ -738,7 +738,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -54.89999999999999,
+      "y": -39.9,
       "z": 0
     },
     "_lrot": {
@@ -995,7 +995,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 128,
-      "height": 149.8
+      "height": 119.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",

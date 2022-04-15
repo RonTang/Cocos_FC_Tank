@@ -2492,10 +2492,6 @@
       "__uuid__": "cb0f3157-d98c-4406-a335-f3c1826e812e",
       "__expectedType__": "cc.Prefab"
     },
-    "player2": {
-      "__uuid__": "7921a12f-c0dc-4c8b-a5d0-c45a34a07b3d",
-      "__expectedType__": "cc.Prefab"
-    },
     "enemy": {
       "__uuid__": "6bcd52e6-1302-48c3-b928-11d3b1ba1d71",
       "__expectedType__": "cc.Prefab"
@@ -3731,7 +3727,7 @@
       "__expectedType__": "cc.Prefab"
     },
     "_level": 6,
-    "map": null,
+    "mapLayer": null,
     "_id": "b4nQdHXjVPsIKnncEA4/oq"
   },
   {

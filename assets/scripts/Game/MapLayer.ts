@@ -76,8 +76,6 @@ export default class MapLayer extends Component {
     @property(Prefab)
     player1: Prefab = null;
     @property(Prefab)
-    player2: Prefab = null;
-    @property(Prefab)
     enemy: Prefab = null;
     @property(Prefab)
     bullet: Prefab = null;
@@ -112,7 +110,6 @@ export default class MapLayer extends Component {
         } else {
             this._audioMng.playAudio("shoot", false);
             bullet.parent = this.playerBullets;
-            console.log(`bullet :${bullet.parent.children.length}`)
         }
 
         bullet.getComponent(Bullet).init(dir, pos, step, tank, level);
@@ -156,7 +153,7 @@ export default class MapLayer extends Component {
     }
 
     checkLevelUp(){
-        console.log(`${this.enemies.children.length},${this._remainEnemiesCount}`)
+        //console.log(`${this.enemies.children.length},${this._remainEnemiesCount}`)
         if (this.enemies.children.length == 0 && this._remainEnemiesCount == 0) {
             //this.unscheduleAllCallbacks();
             this._game.unscheduleAllCallBacksForTarget(this)

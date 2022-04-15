@@ -91,6 +91,7 @@ export default class MapLayer extends Component {
     _audioMng: AudioMng;
     _bulletPool: NodePool;
     _enemiesPool: NodePool;
+    _propPool: NodePool;
     _remainEnemiesCount: number;
     _pause: boolean = false;
     _revertAction :Tween<MapLayer> = null;
@@ -122,7 +123,11 @@ export default class MapLayer extends Component {
     }
 
     destoryEnemy(enemy: Node) {
-        this._enemiesPool.put(enemy);
+        this._enemiesPool.put(enemy)
+    }
+
+    destoryProp(prop: Node){
+        this._propPool.put(prop)
     }
 
     init() {
@@ -190,6 +195,7 @@ export default class MapLayer extends Component {
 
         this._bulletPool = new NodePool();
         this._enemiesPool = new NodePool();
+        this._propPool = new NodePool();
         // 生成玩家
         this.spawnPlayer();
 
@@ -310,7 +316,12 @@ export default class MapLayer extends Component {
         this._remainEnemiesCount--;
     }
     createProp(){
-        let prop = instantiate(this.prop);
+        let prop: Node;
+        if (this._propPool.size() > 0) {
+            prop = this._propPool.get();
+        } else {
+            prop = instantiate(this.prop);
+        }
         prop.parent = this.props;
         prop.getComponent(Prop).init()
     }
@@ -443,7 +454,7 @@ export default class MapLayer extends Component {
         }
 
         for(let i = this.props.children.length - 1; i >= 0; i--){
-            this.props.children[i].destroy()
+            this.destoryProp(this.props.children[i])
         }
 
     }

@@ -13,7 +13,6 @@ import {
     UITransform,
     UIOpacity,
     Rect,
-    isValid
 } from 'cc';
 import { Globals } from '../Globals';
 import AudioMng from '../AudioMng';
@@ -42,9 +41,8 @@ export default class Prop extends Component {
         let ac = tween().to(0.8,{opacity:0}).to(0.8,{opacity:255})
         this.action = tween(opacity).repeatForever(ac)
         Game.single().runAction(this.action)
-
         // 10秒后消失
-        Game.single().scheduleOne(this.kill,this,10)
+        Game.single().scheduleOne(this.onPropDestory,this,10)
     }
     onUpdate(dt: number){
         this.check()
@@ -67,21 +65,19 @@ export default class Prop extends Component {
         }
     }
 
-    kill(){
-        if(isValid(this.node,true))
-            this.node.destroy()
-    }
-
-    onDestroy(){
+    onPropDestory() {
         Game.single().stopAction(this.action)
         Game.single().unscheduleAllCallBacksForTarget(this)
+        this.mapLayer.destoryProp(this.node)
     }
-   
+
     // 产生效果
     effective(player: Node) {
-        this.node.destroy()
+        
         if(this.eventId != 'life') 
         find("/Game/AudioMng").getComponent(AudioMng).playAudio("get_prop", false);
+        console.log(`${this.eventId}`)
         Game.single().gameEvent.emit(this.eventId,player)
+        this.onPropDestory()
     }
 }

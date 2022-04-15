@@ -341,7 +341,6 @@ export default class MapLayer extends Component {
 
     _loadMap() {
        
-        let self = this;
         this.blockTrans = new Array<Array<UITransform>>(26)
         assetManager.loadBundle("maps", (err: Error, bundle: AssetManager.Bundle) => {
             bundle.load(this._game.level.toString(), TextAsset,  (err: Error, file: TextAsset) => {
@@ -356,23 +355,23 @@ export default class MapLayer extends Component {
 
                         switch (data[index++]) {
                             case '3':
-                                block = instantiate(self.blockWall);
+                                block = instantiate(this.blockWall);
                                 block.name = "block_wall";
                                 block.getComponent(BlockWall).init();
                                 break;
                             case '5':
-                                block = instantiate(self.blockStone);
+                                block = instantiate(this.blockStone);
                                 block.name = "block_stone";
                                 break;
                             case '1':
-                                block = instantiate(self.blockForest);
+                                block = instantiate(this.blockForest);
                                 block.name = "block_forest"
                                 break;
                             case '2':
-                                block = instantiate(self.blockIce);
+                                block = instantiate(this.blockIce);
                                 break;
                             case '4':
-                                block = instantiate(self.blockRiver);
+                                block = instantiate(this.blockRiver);
                                 block.name = "block_river";
                                 break;
                             default:
@@ -381,9 +380,9 @@ export default class MapLayer extends Component {
 
                         if (block) {
                             if(block.name != "block_forest")
-                                block.parent = self.blocks;
+                                block.parent = this.blocks;
                             else
-                                block.parent = self.front_blocks;
+                                block.parent = this.front_blocks;
                             block.getComponent(UITransform).setAnchorPoint(0, 0);
                             block.setPosition(j * Globals.BLOCK_SIZE, (25 - i) * Globals.BLOCK_SIZE);
                             this.blockTrans[25 - i][j] = block.getComponent(UITransform)
@@ -392,6 +391,11 @@ export default class MapLayer extends Component {
                         }
                     }
                 }
+                let home = this.blocks.children[0].getComponent(UITransform)
+                this.blockTrans[0][12] = home
+                this.blockTrans[0][13] = home
+                this.blockTrans[1][12] = home
+                this.blockTrans[1][13] = home
             });
         });
     }

@@ -3,7 +3,7 @@ import MapLayer from "./MapLayer";
 import AudioMng from "../AudioMng";
 import { GameMode } from "../Globals";
 import { Random } from "../Math/Math";
-import Connection from "../Connection";
+
 import {
     _decorator,
     Component,

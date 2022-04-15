@@ -88,6 +88,9 @@ export default class Game extends Component {
     }
 
     gameOver() {
+        this.gameover = true;
+        this.scheduler.unscheduleAll()
+        
         let visableSize = view.getVisibleSize();
 
         let gameOverNode = find("/Canvas/External/gameover_up");
@@ -104,7 +107,7 @@ export default class Game extends Component {
                 find("/Canvas/GameLayer").active = false;
                 find("/Canvas/External/gameover_left").active = false;
                 find("/Canvas/External/gameover_up").active = false;
-
+                this.mapLayer._cleanChildNode()
                 // 切换到Game Over
                 find("/Canvas/Camera").getComponent(Camera).clearColor
                     = new Color(0, 0, 0);

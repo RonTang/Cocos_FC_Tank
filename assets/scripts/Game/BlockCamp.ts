@@ -18,13 +18,12 @@ export default class BlockCamp extends Component {
     destoryed: SpriteFrame = null;
 
     tryDestory() {
+        if(Game.single().gameover) return
         this.getComponent(Sprite).spriteFrame = this.destoryed;
-
         // 播放爆炸音效
         find("/Game/AudioMng").getComponent(AudioMng).playAudio("camp_bomb");
-
         // 摧毁后播放上升的game over动画
         find("/Game").getComponent(Game).gameOver();
-        Game.single().gameover = true
+        
     }
 }

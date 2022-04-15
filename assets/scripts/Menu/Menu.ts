@@ -1,4 +1,4 @@
-import Connection from "../Connection";
+
 import {
     _decorator,
     Component,
@@ -12,13 +12,8 @@ const { ccclass } = _decorator;
 // TODO 添加菜单
 @ccclass
 export default class Menu extends Component {
-    conn: Connection = null;
-
     onLoad() {
         director.preloadScene("game");
-
-        this.conn = find("/Connection").getComponent(Connection);
-
         
     }
 

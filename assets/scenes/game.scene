@@ -360,8 +360,8 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 33.973,
-      "y": 0,
+      "x": 22.5,
+      "y": 1.5,
       "z": 0
     },
     "_lrot": {
@@ -427,26 +427,23 @@
       "b": 0,
       "a": 255
     },
-    "_string": "12",
+    "_string": "66",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 0.1,
-    "_fontSize": 6,
+    "_actualFontSize": 11,
+    "_fontSize": 70,
     "_fontFamily": "Arial",
-    "_lineHeight": 6,
-    "_overflow": 0,
+    "_lineHeight": 50,
+    "_overflow": 2,
     "_enableWrapText": true,
-    "_font": {
-      "__uuid__": "42386a7c-658e-44d6-aac3-2cf0da82b74d",
-      "__expectedType__": "cc.LabelAtlas"
-    },
-    "_isSystemFontUsed": false,
-    "_spacingX": 0,
+    "_font": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 1,
     "_isItalic": false,
-    "_isBold": false,
+    "_isBold": true,
     "_isUnderline": false,
     "_underlineHeight": 2,
-    "_cacheMode": 0,
+    "_cacheMode": 2,
     "_id": "3dcS8JLEpLMrRh4NGBkyB5"
   },
   {
@@ -945,7 +942,7 @@
     "_string": "12",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 8,
+    "_actualFontSize": 13,
     "_fontSize": 80,
     "_fontFamily": "Arial",
     "_lineHeight": 80,

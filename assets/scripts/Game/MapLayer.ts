@@ -223,7 +223,9 @@ export default class MapLayer extends Component {
     killAllEnemy(player){
         find("/Game/AudioMng").getComponent(AudioMng).playAudio("tank_bomb", false);
         for(let enemy of this.enemies.children){
-            enemy.getComponent(EnemyTank).disBlood(Globals.TANK_MAX_HP)
+            let tank = enemy.getComponent(EnemyTank)
+            if(!tank.isStar)
+                tank.disBlood(Globals.TANK_MAX_HP)
         }
         //TODO: use  player to add score or any other function.
     }

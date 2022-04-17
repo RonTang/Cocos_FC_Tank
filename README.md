@@ -19,6 +19,10 @@ Powerd by Cocos Creator 3.4.2 and https://github.com/ocfbnj/CocosCreatorTank
 
 9.图像声音资源来自网络，代码MIT，你随便用。
 
+10.游戏运行后效果:
 
 ![20220415_1135042022415113671](https://user-images.githubusercontent.com/4351322/163514363-4bdca076-a36f-42a5-ae8f-04f9970af135.gif)
 
+11.还可以进一步优化坦克之间的碰撞算法，比如使用 松散的四叉树 或者 网格分割来优化。优化后性能会有很大提高。
+
+![20220417_10300620224171032391](https://user-images.githubusercontent.com/4351322/163697794-7c704260-69b4-4407-a469-9abd86c94bfe.gif)

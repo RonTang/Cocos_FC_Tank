@@ -5,10 +5,7 @@ import {
     Prefab,
     instantiate,
     Node,
-    director,
-    find,
-    Label,
-    UITransformComponent
+    Label
 } from 'cc';
 const { ccclass, property } = _decorator;
 
@@ -19,8 +16,10 @@ export default class UpdateInformations extends Component {
     @property(Node)
     enemiesIcon: Node = null;
 
+    enemiesCount: number = 0;
     deleteOneIcon() {
-        this.enemiesIcon.children[this.enemiesIcon.children.length - 1].destroy();
+        this.enemiesIcon.children[this.enemiesCount - 1].destroy();
+        this.enemiesCount--;
     }
 
     updatePlayerBlood(blood: number) {
@@ -33,9 +32,9 @@ export default class UpdateInformations extends Component {
 
         const column = 2;
         const row = Globals.ENEMIES_COUNT / column;
-
+        this.enemiesCount = Globals.ENEMIES_COUNT;
         // 添加坦克图标
-        for (let i = 0; i != row - 1; i++) {
+        for (let i = 0; i != row; i++) {
             for (let j = 0; j != column; j++) {
                 let node = instantiate(this.enemyIcon);
                 node.name = "icon";

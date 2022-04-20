@@ -302,9 +302,10 @@ export default class Bullet extends Component {
                     if(!other.stopMoving){
                         other.stopMoving = true;
                         other.onBulletDestory();
-                        other.tank.bulletCount++
+                        other.tank.bulletCount++;
+                        return true;
                     }
-                    return true;
+                    
                 }
             }
 

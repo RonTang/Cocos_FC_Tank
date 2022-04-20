@@ -1,7 +1,7 @@
 import UpdateInformations from "./UpdateInformations";
 import MapLayer from "./MapLayer";
 import AudioMng from "../AudioMng";
-import { GameMode } from "../Globals";
+import { GameMode, Globals } from "../Globals";
 import { Random } from "../Math/Math";
 
 import {
@@ -48,10 +48,7 @@ export default class Game extends Component {
     gameLayer: Node = null
     stageArea: Node = null
     gameover: boolean = false
-    /* 帧同步 */
-    frameIndex = 0
-    frameList = []
-    room: Colyseus.Room = null
+   
 
     private static instance = null
     static single(){
@@ -60,14 +57,14 @@ export default class Game extends Component {
     @property({
         type: CCInteger,
         min: 1,
-        max: 35
+        max: 36
     })
     get level(): number {
         return this._level;
     }
 
     set level(v: number) {
-        if (v > 35) v -= 35;
+        if (v > Globals.MAX_LEVEL) v -=  Globals.MAX_LEVEL;
         this._level = v;
     }
   

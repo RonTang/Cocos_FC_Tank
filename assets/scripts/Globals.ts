@@ -31,6 +31,7 @@ export const Globals = {
     FENCE_EMPTY: 0,
     FENCE_WALL: 1,
     FENCE_STONE: 2, 
+    MAX_LEVEL: 36,
 
     //USER_SERVER: `ws://${server}:8080/`,
     //LOGIC_SERVER: `ws://${server}:8081/`,

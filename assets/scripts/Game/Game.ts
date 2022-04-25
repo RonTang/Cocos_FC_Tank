@@ -160,7 +160,6 @@ export default class Game extends Component {
         let dt = 0.018
         this.actionManager.update(dt)
         this.scheduler.update(dt)
-        this.frameIndex++
         this.mapLayer.onUpdate(0.02)
         
     }
@@ -241,7 +240,7 @@ export default class Game extends Component {
         
         this.scheduleOne(() => {
             // 关闭Stage
-            console.log(this.frameIndex)
+            
             this.stageArea.active = false;
 
             // 开启GameLayer

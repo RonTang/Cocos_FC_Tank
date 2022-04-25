@@ -156,8 +156,6 @@ export default class MapLayer extends Component {
         //console.log(`${this.enemies.children.length},${this._remainEnemiesCount}`)
         if (this.enemies.children.length == 0 && this._remainEnemiesCount == 0) {
             //this.unscheduleAllCallbacks();
-            this._game.unscheduleAllCallBacksForTarget(this)
-            this._game.stopAction(this._revertAction)
             // 两秒后跳转到下一关
             //this.scheduleOnce(this.toNextStage, 2);
             this._game.scheduleOne(this.toNextStage,this,2)
@@ -327,6 +325,8 @@ export default class MapLayer extends Component {
 
     toNextStage() {
         this._game.level = this._game.level + 1;
+        this._game.unscheduleAllCallBacksForTarget(this)
+        this._game.stopAction(this._revertAction)
         //fix bug that can shoot bullet when level up
         for(let player of this.players.children){
             player.getComponent(PlayerTank).controlStop() 

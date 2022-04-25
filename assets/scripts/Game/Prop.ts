@@ -16,6 +16,7 @@ import {
 } from 'cc';
 import { Globals } from '../Globals';
 import AudioMng from '../AudioMng';
+import BaseTank from './BaseTank';
 @ccclass
 export default class Prop extends Component {
     @property([SpriteFrame])
@@ -59,8 +60,12 @@ export default class Prop extends Component {
     check() {
         for (let player of this.mapLayer.players.children){
             if(this._isCollisionWithPlayer(player)){
-                this.effective(player)
-                break
+                let tank = player.getComponent(BaseTank)
+                if(tank.blood > 0){
+                    this.effective(player)
+                    break
+                }
+                
             }
         }
     }
